@@ -12,7 +12,8 @@ const refs = {
   span: document.querySelector('.color'),
 };
 const changeColor = event => {
-  refs.body.style.backgroundColor = getRandomHexColor();
-  refs.span.textContent = getRandomHexColor();
+  const colorBase = getRandomHexColor(event);
+  refs.body.style.backgroundColor = colorBase;
+  refs.span.textContent = colorBase;
 };
 refs.btn.addEventListener('click', changeColor);

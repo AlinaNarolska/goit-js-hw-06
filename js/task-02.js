@@ -5,10 +5,11 @@
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
 const ingredientsEl = document.querySelector('#ingredients');
-
-for (const obj of ingredients) {
-  const newIngredientsLi = document.createElement('li');
-  newIngredientsLi.textContent = obj;
-  newIngredientsLi.classList.add('item');
-  ingredientsEl.append(newIngredientsLi);
-}
+const newIngredientsLi = ingredients.map(ingredient => {
+  const liEl = document.createElement('li');
+  liEl.textContent = ingredient;
+  liEl.classList.add('item');
+  return liEl;
+});
+console.log(newIngredientsLi);
+ingredientsEl.append(...newIngredientsLi);
